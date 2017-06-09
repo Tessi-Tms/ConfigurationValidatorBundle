@@ -31,6 +31,11 @@ class CheckConfigurationValidator extends ConstraintValidator
         $configs = is_array($value) ? $value : json_decode($value, true);
         $processor = new Processor();
 
+        if ($this->isAssociative($configs)) {
+            // The configuration expected to have a non associative array if not an exception will be thrown.
+            $configs = array($configs);
+        }
+
         try {
             $processor->processConfiguration($configuration, $configs);
         } catch (\Exception $e) {
@@ -40,5 +45,20 @@ class CheckConfigurationValidator extends ConstraintValidator
                 ->addViolation()
             ;
         }
+    }
+
+    /**
+     * Check if an array is associative.
+     *
+     * @param array $array
+     *
+     * @return bool
+     */
+    private function isAssociative(array $array) {
+        if (array() === $array) {
+            return false;
+        }
+
+        return array_keys($array) !== range(0, count($array) - 1);
     }
 }

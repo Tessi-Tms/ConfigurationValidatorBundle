@@ -1,6 +1,6 @@
 parameters:
-    idci_configuration_validator.configuration_validator_registry.class: "IDCI\Bundle\ConfigurationValidatorBundle\ConfigurationRule\ConfigurationRuleRegistry"
-    idci_configuration_validator.check_configuration_validator.class: "IDCI\Bundle\ConfigurationValidatorBundle\Validator\Constraints\CheckConfigurationValidator"
+    idci_configuration_validator.configuration_validator_registry.class: "IDCI\\Bundle\\ConfigurationValidatorBundle\\ConfigurationRule\\ConfigurationRuleRegistry"
+    idci_configuration_validator.check_configuration_validator.class: "IDCI\\Bundle\\ConfigurationValidatorBundle\\Validator\\Constraints\\CheckConfigurationValidator"
 
 services:
 
